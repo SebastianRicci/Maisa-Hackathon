@@ -121,14 +121,20 @@ conditions and evidence · perfect HA — they want an honest strategy for provi
 
 ## Getting started
 
+La Caja is vendored in `caja/` — an unmodified export of
+[ikurotime/500-sombras-de-alberto](https://github.com/ikurotime/500-sombras-de-alberto) at commit
+`18d43b3` (2026-09-18). **Treat it as read-only input**: never edit files in it, so every decision
+traces back to a known data version. If upstream or the channel zip changes, re-export and note the
+new commit/hash here.
+
 ```bash
-git clone https://github.com/ikurotime/500-sombras-de-alberto caja   # gitignored
 make -C caja erp          # ERP on http://127.0.0.1:8009  (erp-fast = no artificial latency)
 make -C caja erp-status
 make -C caja erp-login    # usuario=alberto clave=FACTURAS2009
 ```
 
-Saturday: `make -C caja erp-lote2 LOTE2_ERP=path/to/erp_export_lote2.csv`.
+Saturday: unpack batch 2 into `lote_2_sorpresa/` at the repo root (where `caja/Makefile` expects
+it) and run `make -C caja erp-lote2`.
 
 ## Repo layout
 
@@ -136,6 +142,7 @@ Saturday: `make -C caja erp-lote2 LOTE2_ERP=path/to/erp_export_lote2.csv`.
 README.md                         this brief
 CLAUDE.md                         rules for Claude Code in this repo
 docs/data-recon.md                first-pass findings on La Caja
+caja/                             La Caja, vendored and read-only (500 PDFs, Excel, ERP, manual)
 .claude/skills/hackspain-cli/     skill: how to use the hackspain CLI safely
 ```
 
