@@ -1,0 +1,36 @@
+# Challenge data (clone of ikurotime/500-sombras-de-alberto + Saturday batch)
+caja/
+lote_2_sorpresa/
+*.zip
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Claude Code local settings
+.claude/settings.local.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+
+# Node
+node_modules/
+
+# Runtime state / outputs
+*.sqlite
+*.sqlite3
+*.db
+*.log
+out/
+.cache/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
