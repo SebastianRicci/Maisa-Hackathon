@@ -1,6 +1,4 @@
-# Challenge data (clone of ikurotime/500-sombras-de-alberto + Saturday batch)
-caja/
-lote_2_sorpresa/
+# Challenge data lives in caja/ (committed). Keep the raw downloads out.
 *.zip
 
 # Secrets

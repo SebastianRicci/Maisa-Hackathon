@@ -23,6 +23,9 @@ re-verify anything a decision depends on. The zip released in the track channel
 - **Two number formats**: `2.489,99` (Spanish) and `EUR 3325.33` (dot decimal).
 - Dates are `DD/MM/AAAA`. VAT is 21% everywhere it is printed; every currency mention is EUR.
 - Customer is always `Banco Miralmar S.A. · CIF A58231074`.
+- **Filenames with accents are stored as Unicode NFC upstream** (`informática`, `papelería`,
+  `mensajería`, `ofimática`). macOS can list them as NFD; `file_id` in the JSONL must be NFC or it
+  will not match the reference.
 - 470 distinct order numbers across the text PDFs; **23 orders are referenced by more than one
   invoice** (rule 5: never pay the same order twice; `copia_`/`reimpresion_`/`-A/-B/-C` files
   are the obvious suspects).

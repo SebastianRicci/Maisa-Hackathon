@@ -19,6 +19,13 @@ Read `README.md` for the challenge brief and `docs/data-recon.md` for what the d
   this repo to look like the deliverable.
 - Do not commit or push without the user's approval.
 
+## Git workflow
+
+- `main` is protected: every change goes through a branch and a PR; squash merge only.
+- **Conventional Commits** for commit messages *and* PR titles (the PR title becomes the squashed
+  commit on `main`): `feat:`, `fix:`, `docs:`, `chore:`, `refactor:`, `test:`, `perf:`, with an
+  optional scope, e.g. `feat(extract): parse dot-decimal amounts`.
+
 ## HackSpain CLI
 
 Use the `hackspain-cli` skill. Short version: read with `hackspain --json <cmd>`; anything that
@@ -27,7 +34,10 @@ defaults to `--draft`; never start `hackspain watch` yourself.
 
 ## Local environment
 
-- Challenge data is expected in `caja/` (gitignored): `git clone https://github.com/ikurotime/500-sombras-de-alberto caja`.
+- Challenge data is vendored in `caja/` (upstream `18d43b3`). **Read-only: never edit, reformat or
+  "fix" anything in it** — it is the pinned input every decision traces back to.
+- `file_id` must be the exact upstream filename in **Unicode NFC** (`informática` = `c3 a1`). macOS
+  directory listings can return NFD, so normalise with `unicodedata.normalize("NFC", name)`.
 - ERP: `make -C caja erp` (port 8009) or `erp-fast` for no artificial latency. Responses are XML in
   **ISO-8859-1**, dates `DD/MM/AAAA`, amounts `12.874,40`.
 - `python3` is an asdf shim; outside a directory with `.tool-versions` set `ASDF_PYTHON_VERSION=3.12.0`.
